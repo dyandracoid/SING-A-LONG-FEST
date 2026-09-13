@@ -6,6 +6,7 @@
 <meta name="description" content="Beli tiket Sing Along Festival 2027 - Surabaya Expo Center. Tiket mulai Rp 85.000 hanya di Findtix.">
 <title>Tiket Sing Along Festival - Findtix</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234b46dc'/><text x='16' y='23' font-size='18' font-weight='bold' text-anchor='middle' fill='white'>f</text></svg>">
+<link rel="prefetch" href="form-pemesanan.html">
 
 <style>
 * {
@@ -32,7 +33,10 @@ body {
     background: #f7f8fc;
     color: var(--text);
     overflow-x: hidden;
+    transition: opacity .28s ease;
 }
+
+body.page-exit { opacity: 0; }
 
 button, input { font-family: inherit; }
 
@@ -768,7 +772,7 @@ button, input { font-family: inherit; }
 
 <section class="website-header">
     <div class="website-header-inner">
-        <a href="#" class="brand-logo" aria-label="Findtix">
+        <a href="index.html" class="brand-logo" aria-label="Findtix">
             <div class="brand-mark">
                 <i></i>
                 <i></i>
@@ -1059,13 +1063,25 @@ document.getElementById("buyBtn").addEventListener("click", function() {
     if (!items.length) return;
 
     let total = 0;
-    const lines = items.map(function(t) {
-        const sub = t.price * selected[t.id];
-        total += sub;
-        return t.name + " x" + selected[t.id] + " = " + formatPrice(sub);
+    let count = 0;
+    const cart = items.map(function(t) {
+        const qty = selected[t.id];
+        total += t.price * qty;
+        count += qty;
+        return { nama: t.name, qty: qty, harga: t.price };
     });
 
-    alert("Melanjutkan ke pembayaran\n\n" + lines.join("\n") + "\n\nTotal: " + formatPrice(total));
+    try {
+        localStorage.setItem("checkout_items", JSON.stringify(cart));
+        localStorage.setItem("totalPembayaran", String(total));
+        localStorage.setItem("jumlahTiket", String(count));
+        localStorage.setItem("sesiEvent", "Sesi 1");
+    } catch (e) {}
+
+    document.body.classList.add("page-exit");
+    setTimeout(function() {
+        window.location.href = "form.html";
+    }, 280);
 });
 
 function login() {
