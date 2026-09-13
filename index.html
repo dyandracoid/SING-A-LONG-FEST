@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sing Along Festival 2027 - Surabaya Expo Center. Tiket mulai Rp 85.000 hanya di Findtix.">
+<title>Sing Along Festival - Findtix</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234b46dc'/><text x='16' y='23' font-size='18' font-weight='bold' text-anchor='middle' fill='white'>f</text></svg>">
+<link rel="prefetch" href="tiket.html">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+:root {
+    --primary: #4b46dc;
+    --primary-dark: #403bc8;
+    --orange: #f36b21;
+    --text: #252b38;
+    --muted: #777e89;
+    --border: #e5e7ed;
+    --soft: #d9d8f7;
+    --icon: #303744;
+    --social: #626977;
+    --faint: #9298a4;
+    --grad: linear-gradient(135deg, #514ce2, #413bc9);
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    background: #f7f8fc;
+    color: var(--text);
+    overflow-x: hidden;
+    transition: opacity .28s ease;
+}
+
+body.page-exit { opacity: 0; }
+
+button, input { font-family: inherit; }
+
+.main-nav {
+    height: 54px;
+    background: var(--grad);
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar { display: none; }
+
+.nav-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 46px;
+    padding: 0 24px;
+}
+
+.nav-container a {
+    color: rgba(255,255,255,.95);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.website-header {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+}
+
+.website-header-inner {
+    max-width: 1100px;
+    height: 124px;
+    margin: auto;
+    padding: 0 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 54px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.brand-mark i {
+    display: block;
+    position: absolute;
+    background: var(--primary);
+    border-radius: 7px;
+}
+
+.brand-mark i:nth-child(1) {
+    width: 43px;
+    height: 12px;
+    left: 0;
+    top: 7px;
+    transform: rotate(-43deg);
+}
+
+.brand-mark i:nth-child(2) {
+    width: 36px;
+    height: 12px;
+    left: 11px;
+    top: 28px;
+    transform: rotate(43deg);
+}
+
+.brand-mark i:nth-child(3) {
+    width: 13px;
+    height: 13px;
+    right: 0;
+    bottom: 1px;
+    border-radius: 50%;
+}
+
+.brand-text {
+    font-size: 39px;
+    line-height: 1;
+    font-weight: 750;
+    letter-spacing: -2px;
+}
+
+.brand-text .find { color: var(--primary); }
+.brand-text .tix { color: var(--orange); }
+
+.login-btn {
+    min-width: 124px;
+    height: 50px;
+    padding: 0 27px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--grad);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(70,65,210,.18);
+    transition: .18s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(70,65,210,.23);
+}
+
+.search-wrapper {
+    background: #fff;
+    padding: 18px 32px 21px;
+    border-bottom: 1px solid var(--border);
+}
+
+.search-box {
+    width: 100%;
+    max-width: 1035px;
+    height: 58px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 0 18px;
+    background: #f8f9fc;
+    border: 1px solid #e0e3e9;
+    border-radius: 13px;
+    box-shadow: 0 2px 7px rgba(20,25,40,.035);
+}
+
+.search-box:focus-within {
+    background: #fff;
+    border-color: rgba(75,70,220,.45);
+    box-shadow: 0 0 0 4px rgba(75,70,220,.06);
+}
+
+.search-box svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--faint);
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: transparent;
+    color: #292f3b;
+    font-size: 17px;
+}
+
+.search-box input::placeholder { color: var(--faint); }
+
+.main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 62px 32px 170px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #dcb8f4;
+    box-shadow: 0 4px 16px rgba(30,35,50,.04);
+}
+
+.banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banner-next {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,.57);
+    border-radius: 50%;
+    color: #60606b;
+    font-size: 34px;
+    backdrop-filter: blur(4px);
+}
+
+.event-info { margin-top: 43px; }
+
+.event-title {
+    font-size: 35px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #252c39;
+    margin-bottom: 24px;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.location strong {
+    font-size: 23px;
+    font-weight: 600;
+    color: #29303d;
+}
+
+.external-link {
+    width: 21px;
+    height: 21px;
+    border: 2px solid var(--icon);
+    border-radius: 3px;
+    position: relative;
+}
+
+.external-link::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    top: -4px;
+    right: -4px;
+    background: #f7f8fc;
+    border-top: 2px solid var(--icon);
+    border-right: 2px solid var(--icon);
+}
+
+.city {
+    color: var(--muted);
+    font-size: 22px;
+    margin-bottom: 21px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: 11px;
+    color: #2c3442;
+    font-size: 21px;
+}
+
+.info-icon {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    border: 2.5px solid var(--icon);
+    position: relative;
+}
+
+.calendar { border-radius: 4px; }
+
+.calendar::before {
+    content: "";
+    position: absolute;
+    left: -2.5px;
+    right: -2.5px;
+    top: 6px;
+    border-top: 2.5px solid var(--icon);
+}
+
+.calendar::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 5px;
+    left: 5px;
+    top: -5px;
+    background: var(--icon);
+    border-radius: 2px;
+    box-shadow: 8px 0 var(--icon);
+}
+
+.clock { border-radius: 50%; }
+
+.clock::before {
+    content: "";
+    position: absolute;
+    width: 2.5px;
+    height: 8px;
+    left: 9px;
+    top: 4px;
+    background: var(--icon);
+}
+
+.clock::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 2.5px;
+    left: 10px;
+    top: 11px;
+    background: var(--icon);
+    transform: rotate(25deg);
+    transform-origin: left center;
+}
+
+.organizer {
+    margin-top: 40px;
+    background: #fff;
+    border-radius: 25px;
+    padding: 36px 46px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.avatar {
+    width: 86px;
+    height: 86px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #deddf8;
+}
+
+.organizer-label {
+    color: var(--muted);
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.organizer-name {
+    color: #252d3b;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.social {
+    display: flex;
+    gap: 14px;
+    margin-top: 13px;
+}
+
+.social-box {
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--social);
+    border-radius: 7px;
+    position: relative;
+}
+
+.instagram::before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    left: 7px;
+    top: 7px;
+    border: 2px solid var(--social);
+    border-radius: 50%;
+}
+
+.instagram::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    right: 4px;
+    top: 4px;
+    background: var(--social);
+    border-radius: 50%;
+}
+
+.tiktok {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    color: var(--social);
+    font-size: 23px;
+}
+
+.tabs {
+    width: 100%;
+    max-width: 760px;
+    height: 65px;
+    margin-top: 42px;
+    padding: 5px;
+    background: var(--soft);
+    border-radius: 15px;
+    display: flex;
+}
+
+.tab {
+    flex: 1;
+    border: 0;
+    border-radius: 11px;
+    background: transparent;
+    color: #7774d4;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.tab.active {
+    color: #fff;
+    background: var(--primary);
+    box-shadow: 0 3px 8px rgba(75,70,220,.2);
+}
+
+.content { margin-top: 42px; }
+
+.description {
+    font-size: 23px;
+    line-height: 1.72;
+    color: #2c3442;
+}
+
+.hidden { display: none !important; }
+
+.terms {
+    margin-top: 40px;
+    min-height: 55px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--soft);
+    color: #706fd3;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.book-icon {
+    width: 24px;
+    height: 22px;
+    border: 2px solid #706fd3;
+    border-radius: 3px;
+    position: relative;
+}
+
+.book-icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    bottom: -2px;
+    border-left: 2px solid #706fd3;
+}
+
+.list {
+    list-style: none;
+    font-size: 21px;
+    line-height: 2;
+}
+
+.list li::before {
+    content: "•";
+    color: var(--primary);
+    font-weight: bold;
+    margin-right: 11px;
+}
+
+.buy-bar {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 128px;
+    padding: 22px 48px;
+    background: rgba(255,255,255,.98);
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 -5px 22px rgba(25,30,45,.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.start-from {
+    color: var(--muted);
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.price {
+    color: #11151b;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.buy {
+    width: 195px;
+    height: 58px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--grad);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.buy:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(12,16,25,.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(3px);
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.modal-content h2 {
+    font-size: 26px;
+    margin-bottom: 18px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555d69;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    background: transparent;
+    color: #333;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+    .main-nav { height: 52px; }
+
+    .nav-container {
+        min-width: max-content;
+        justify-content: flex-start;
+        gap: 29px;
+        padding: 0 22px;
+    }
+
+    .nav-container a { font-size: 13px; }
+
+    .website-header-inner {
+        height: 111px;
+        padding: 0 22px;
+    }
+
+    .brand-mark {
+        width: 43px;
+        height: 48px;
+        transform: scale(.88);
+        transform-origin: left center;
+    }
+
+    .brand-text {
+        font-size: 31px;
+        letter-spacing: -1.5px;
+    }
+
+    .login-btn {
+        min-width: 103px;
+        height: 46px;
+        padding: 0 20px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    .search-wrapper { padding: 16px 20px 19px; }
+
+    .search-box {
+        height: 53px;
+        padding: 0 16px;
+        border-radius: 12px;
+    }
+
+    .search-box input { font-size: 16px; }
+
+    .main { padding: 52px 20px 155px; }
+
+    .banner { border-radius: 22px; }
+
+    .banner-next {
+        width: 48px;
+        height: 48px;
+        right: 5px;
+        font-size: 28px;
+    }
+
+    .event-info { margin-top: 38px; }
+
+    .event-title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .location strong { font-size: 20px; }
+
+    .city {
+        font-size: 19px;
+        margin-bottom: 18px;
+    }
+
+    .info-row {
+        font-size: 19px;
+        gap: 11px;
+    }
+
+    .info-icon {
+        width: 23px;
+        height: 23px;
+    }
+
+    .organizer {
+        margin-top: 34px;
+        padding: 29px 24px;
+        border-radius: 21px;
+        gap: 19px;
+    }
+
+    .avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .organizer-label { font-size: 16px; }
+
+    .organizer-name { font-size: 19px; }
+
+    .tabs {
+        height: 59px;
+        margin-top: 35px;
+        border-radius: 13px;
+    }
+
+    .tab {
+        font-size: 17px;
+        border-radius: 9px;
+    }
+
+    .content { margin-top: 35px; }
+
+    .description {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+    .terms {
+        margin-top: 31px;
+        min-height: 50px;
+        padding: 0 17px;
+        font-size: 17px;
+        border-radius: 11px;
+    }
+
+    .buy-bar {
+        min-height: 119px;
+        padding: 19px 23px;
+        border-radius: 21px 21px 0 0;
+    }
+
+    .start-from {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .price { font-size: 23px; }
+
+    .buy {
+        width: 155px;
+        height: 54px;
+        border-radius: 11px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .nav-container {
+        gap: 22px;
+        padding-left: 18px;
+    }
+
+    .nav-container a { font-size: 12px; }
+
+    .website-header-inner { padding: 0 17px; }
+
+    .brand-mark { transform: scale(.72); }
+
+    .brand-text { font-size: 27px; }
+
+    .login-btn {
+        min-width: 92px;
+        padding: 0 15px;
+        font-size: 14px;
+    }
+
+    .main {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .event-title { font-size: 28px; }
+
+    .organizer { padding: 25px 19px; }
+
+    .organizer-name { font-size: 17px; }
+
+    .tab { font-size: 15px; }
+
+    .description { font-size: 18px; }
+
+    .buy-bar {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .buy { width: 140px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="main-nav">
+    <div class="nav-container">
+        <a href="#">Our Services</a>
+        <a href="#">Bikin Event</a>
+        <a href="#">Customer Service</a>
+    </div>
+</nav>
+
+<section class="website-header">
+    <div class="website-header-inner">
+        <a href="#" class="brand-logo" aria-label="Findtix">
+            <div class="brand-mark">
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+            <div class="brand-text">
+                <span class="find">find</span><span class="tix">tix</span>
+            </div>
+        </a>
+        <button type="button" class="login-btn" onclick="login()">Masuk</button>
+    </div>
+</section>
+
+<section class="search-wrapper">
+    <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-3.5-3.5"></path>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Cari event, artis, atau kota..." autocomplete="off" aria-label="Cari event, artis, atau kota">
+    </div>
+</section>
+
+<main class="main">
+
+    <div class="banner">
+        <img src="banner.png" alt="Sing Along Festival" decoding="async">
+        <div class="banner-next" aria-hidden="true">→</div>
+    </div>
+
+    <section class="event-info">
+        <h1 class="event-title">Sing Along Festival</h1>
+
+        <div class="location">
+            <strong>Surabaya Expo Center</strong>
+            <span class="external-link"></span>
+        </div>
+
+        <div class="city">Surabaya, Jawa Timur</div>
+
+        <div class="info-row">
+            <span class="info-icon calendar"></span>
+            <span>9 Jan 2027 (WIB)</span>
+        </div>
+
+        <div class="info-row">
+            <span class="info-icon clock"></span>
+            <span>14:00 - 23:00</span>
+        </div>
+    </section>
+
+    <section class="organizer">
+        <div class="avatar"></div>
+        <div>
+            <div class="organizer-label">Organized by</div>
+            <div class="organizer-name">Space And Future Creative</div>
+            <div class="social">
+                <div class="social-box instagram"></div>
+                <div class="social-box tiktok">♪</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tabs">
+        <button type="button" class="tab active" onclick="showTab('description', this)">Deskripsi</button>
+        <button type="button" class="tab" onclick="showTab('talent', this)">Talent</button>
+        <button type="button" class="tab" onclick="showTab('facility', this)">Fasilitas</button>
+    </div>
+
+    <section id="description" class="content">
+        <p class="description">
+            Feel the Vibe. Sing Together Sing A Long
+            Fest 2027 hadir sebagai ruang ekspresi
+            anak muda yang seru, bebas, dan penuh
+            warna. Bukan sekadar konser, tapi festival
+            musik yang menghadirkan pengalaman
+            lengkap dari sing along bareng idola,
+            kulineran, hingga berburu foto dan
+            merchandise eksklusif.
+        </p>
+
+        <button type="button" class="terms" onclick="openTerms()">
+            <span class="book-icon"></span>
+            <span>Syarat &amp; Ketentuan</span>
+        </button>
+    </section>
+
+    <section id="talent" class="content hidden">
+        <ul class="list">
+            <li>Guest Star Nasional</li>
+            <li>Musisi Populer</li>
+            <li>Local Music Performance</li>
+            <li>Special Guest</li>
+        </ul>
+    </section>
+
+    <section id="facility" class="content hidden">
+        <ul class="list">
+            <li>Area Konser</li>
+            <li>Food &amp; Beverage</li>
+            <li>Photo Spot</li>
+            <li>Merchandise Eksklusif</li>
+            <li>Toilet &amp; Public Area</li>
+        </ul>
+    </section>
+
+</main>
+
+<div class="buy-bar">
+    <div>
+        <div class="start-from">Mulai dari</div>
+        <div class="price">Rp 85.000</div>
+    </div>
+    <button type="button" class="buy" onclick="buyTicket()">Beli Tiket</button>
+</div>
+
+<div id="termsModal" class="modal" role="dialog" aria-modal="true" aria-label="Syarat dan Ketentuan">
+    <div class="modal-content">
+        <button type="button" class="modal-close" onclick="closeTerms()" aria-label="Tutup">×</button>
+        <h2>Syarat &amp; Ketentuan</h2>
+        <p>
+            1. Tiket yang telah dibeli tidak dapat
+            dikembalikan kecuali event dibatalkan.
+            <br><br>
+            2. Tiket wajib dibawa pada saat memasuki
+            area event.
+            <br><br>
+            3. Satu tiket hanya berlaku untuk satu orang.
+            <br><br>
+            4. Pengunjung wajib mengikuti seluruh
+            peraturan yang berlaku di area event.
+            <br><br>
+            5. Jadwal dan informasi event dapat berubah
+            sewaktu-waktu sesuai kebijakan penyelenggara.
+        </p>
+    </div>
+</div>
+
+<script>
+function login() {
+    alert("Halaman login Findtix");
+}
+
+function buyTicket() {
+    document.body.classList.add("page-exit");
+    setTimeout(function() {
+        window.location.href = "tiket.html";
+    }, 280);
+}
+
+function showTab(id, button) {
+    document.querySelectorAll(".content").forEach(function(el) {
+        el.classList.add("hidden");
+    });
+    document.querySelectorAll(".tab").forEach(function(el) {
+        el.classList.remove("active");
+    });
+    const target = document.getElementById(id);
+    if (target) target.classList.remove("hidden");
+    button.classList.add("active");
+}
+
+function openTerms() {
+    document.getElementById("termsModal").classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function closeTerms() {
+    document.getElementById("termsModal").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+const termsModal = document.getElementById("termsModal");
+
+termsModal.addEventListener("click", function(event) {
+    if (event.target === this) closeTerms();
+});
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") closeTerms();
+});
+
+document.getElementById("searchInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        const value = this.value.trim();
+        if (value !== "") alert("Mencari: " + value);
+    }
+});
+</script>
+
+</body>
+</html>
